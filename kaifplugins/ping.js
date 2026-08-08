@@ -31,10 +31,14 @@ module.exports = {
         report += `📡 *Server Latency:* ${incomingLatency}ms\n\n`;
         report += `⚡ *Send By Kaif (03466859436)*`;
 
-        // Update message
-        await kaif_sock.sendMessage(kaif_origin, { 
-            text: report, 
-            edit: pingMsg.key 
-        });
+        // Update message safely
+        try {
+            await kaif_sock.sendMessage(kaif_origin, { 
+                text: report, 
+                edit: pingMsg.key 
+            });
+        } catch (e) {
+            await kaif_sock.sendMessage(kaif_origin, { text: report });
+        }
     }
 };
