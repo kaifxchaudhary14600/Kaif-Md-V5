@@ -250,7 +250,7 @@ async function sendMovieFile(kaif_sock, kaif_origin, selected, kaif_msg) {
     try {
         statusMsg = await kaif_sock.sendMessage(kaif_origin, { text: statusText }, { quoted: kaif_msg });
     } catch(e) {}
-    const docCaption = '⚡ *' + baseName + '*\n\n👤 *Send By Kaif (03466859436)*';
+    const docCaption = '⚡ *' + baseName + '*'⚡ *';
     try {
         console.log('[MOVIE-STREAM] Connecting to remote stream: ' + selected.downloadUrl + '...');
         remoteStream = await getRemoteStream(selected.downloadUrl);
