@@ -265,7 +265,7 @@ async function sendMovieFile(kaif_sock, kaif_origin, selected, kaif_msg) {
         console.log('[MOVIE-STREAM] Document sent successfully!');
     } catch(err) {
         console.error('[MOVIE-STREAM] Document delivery error:', err.message);
-        const fallbackText = '⚡ *' + baseName + '*\n\n👤 *Send By Kaif (03466859436)*';
+       const fallbackText = '⚡ *' + baseName + '*';
         await kaif_sock.sendMessage(kaif_origin, { text: fallbackText }, { quoted: kaif_msg });
     } finally {
         if (remoteStream && typeof remoteStream.destroy === 'function') {
